@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
-#include "structs.h"
+#include "tipos.h"
 
 _Bool CmpStrValues(char s1[], char s2[]){ //COMPARA DUAS STRING > RETORNA 1 SE AS DUAS STRINGS FOREM IGUAIS OU 0 SE NÃO FOREM
     int i = 0;
