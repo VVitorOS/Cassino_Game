@@ -5,6 +5,6 @@
 int main(){
     setlocale(LC_ALL, "portuguese");
 
-    JogoDoBicho(1);
+    Menu();
 
 }

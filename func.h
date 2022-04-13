@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+#include "structs.h"
 
 _Bool CmpStrValues(char s1[], char s2[]){ //COMPARA DUAS STRING > RETORNA 1 SE AS DUAS STRINGS FOREM IGUAIS OU 0 SE NÃO FOREM
     int i = 0;
@@ -18,9 +19,9 @@ _Bool CmpStrValues(char s1[], char s2[]){ //COMPARA DUAS STRING > RETORNA 1 SE A
     }
 }
 
-void Sorteando(){   //CRIA UMA "ANIMAÇÃO" DE LOADING (PRINTA "." COM INTEVALOS DE 1 SEGUNDO)
+void Loading(char palavra[]){   //CRIA UMA "ANIMAÇÃO" DE LOADING (PRINTA "." COM INTEVALOS DE 1 SEGUNDO)
 
-    printf("Sorteando");
+    printf("%s", palavra);
     printf(".");
     sleep(1);
     printf(".");
@@ -30,7 +31,7 @@ void Sorteando(){   //CRIA UMA "ANIMAÇÃO" DE LOADING (PRINTA "." COM INTEVALOS
     system("cls");
 }
 
-void JogoDoBicho(int dia){
+void JogoDoBicho(int dia){  //QUANDO CHAMADA ESTA FUNÇÃO EXECUTA O JOGO DO BICHO
     setlocale(LC_ALL, "portuguese");
 
     srand(time(NULL));
@@ -74,7 +75,7 @@ void JogoDoBicho(int dia){
     }
 
     system("cls");
-    Sorteando();
+    Loading("Sorteando");
 
     strcpy(sorteio, animais[rand() % 26]);  //SORTEANDO UM ANIMAL E COLOCANDO DENTRO DE "sorteio"
 
@@ -86,5 +87,37 @@ void JogoDoBicho(int dia){
     }
     else{
         printf("\nVoce perdeu");
+    }
+}
+
+void Sair(){    //QUANDO CHAMADA A FUNÇÃO FECHA O JOGO E O TERMINAL
+    system("cls");
+    Loading("Saindo");
+    system("exit");
+}
+
+void Menu(){ //FUNÇÃO QUE CHAMA O MENU 
+    int opcao;
+
+    printf("\nBEM VINDO AO CASSINO\n");
+
+    printf("\n1 - JOGAR");
+    printf("\n2 - CARREGAR JOGO");
+    printf("\n3 - SAIR\n");
+    scanf("%d", &opcao);
+
+    switch(opcao){
+        case 1:
+            JogoDoBicho(1);
+            break;
+        case 2:
+            //CarregarJogo();
+            break;
+        case 3:
+            Sair();
+            break;
+        default:
+            printf("default");
+            break;
     }
 }
