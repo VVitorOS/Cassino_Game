@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include "func.h"
 #include <locale.h>
+#include <windows.h>
 
 int main(){
-    setlocale(LC_ALL, "portuguese");
+
+    UINT CPAGE_UTF8 = 65001;
+    UINT CPAGE_DEFAULT = GetConsoleOutputCP();
+    SetConsoleOutputCP(CPAGE_UTF8);
 
     Menu();
-    system("pause");
-    return 0;
 
+    SetConsoleOutputCP(CPAGE_DEFAULT);
 }
