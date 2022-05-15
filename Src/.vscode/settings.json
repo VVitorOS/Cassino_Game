@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "utilityfunc.h": "c",
+        "playerfunc.h": "c",
+        "fases.h": "c",
+        "playerstatus.h": "c",
+        "funcs.h": "c"
+    }
+}
